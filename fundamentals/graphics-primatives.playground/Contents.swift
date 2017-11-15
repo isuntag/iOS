@@ -17,14 +17,22 @@ struct Line {
 }
 //Create a Triangle Struct that contains a property called "Points" which is an array of type Point
 struct Triangle {
-    var Points: [Point] = [Point]()
+    var Points: [Point]
     //Add a function to the Triangle to get the area of the triangle built with three provided points and return the value as a Double.
     func Area() -> Double {
-        let
+        let A = Points[0]
+        let B = Points[1]
+        let C = Points[2]
+        let area = abs((A.X*(B.Y-C.Y)+B.X*(C.Y-A.Y)+C.X*(A.Y-B.Y))/2)
+        return area
     }
 }
+var pointone = Point(X:0, Y:0)
+var pointtwo = Point(X:4, Y:0)
+var pointthree = Point(X:0, Y:5)
 
-var oneline = Line(Start: Point(X:0, Y:0), End: Point(X:4, Y:0))
+var line = Line(Start: pointone, End: pointtwo)
 
-var onetriangle(Points: [Point(X:0, Y:0),Point(X:4, Y:0), Point(X:0, Y:5)])
-print(ontriangle.Area())
+var triangle = Triangle(Points: [pointone, pointtwo, pointthree])
+
+print(triangle.Area())
